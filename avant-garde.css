@@ -1,0 +1,493 @@
+/* --- RESET & TEMPLATE GLOBALS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* --- 1. NAVBAR STYLING --- */
+.navbar {
+    background-color: #000000;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.nav-btn:hover { opacity: 1; }
+
+.nav-title {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+}
+
+/* --- 2. VIVID TEAL TOP GALLERY BANNER --- */
+.gallery-top-section {
+    background-color: #0093b1; /* Vibrant cyan/teal from template */
+    padding: 80px 40px;
+    position: relative;
+    text-align: center;
+}
+
+.torn-paper-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 16px;
+    background: radial-gradient(circle at 50% 100%, transparent 10px, #ffffff 11px);
+    background-size: 20px 20px;
+}
+
+.torn-paper-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 16px;
+    background: radial-gradient(circle at 50% 0%, transparent 10px, #ffffff 11px);
+    background-size: 20px 20px;
+}
+
+.section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    color: #4f0c18; /* Dark maroon typography contrast */
+    font-weight: 700;
+}
+
+.polaroid-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.polaroid-card {
+    background-color: #ffffff;
+    padding: 12px 12px 35px 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 200px;
+}
+
+.polaroid-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.polaroid-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rot-left { transform: rotate(-5deg); }
+.rot-straight { transform: rotate(1deg); top: -8px; }
+.rot-right { transform: rotate(4deg); }
+
+.tape {
+    position: absolute;
+    top: -14px;
+    left: 35%;
+    width: 65px;
+    height: 20px;
+    background-color: rgba(226, 218, 195, 0.75);
+    transform: rotate(-3deg);
+}
+
+.intro-caption {
+    max-width: 1100px;
+    margin: 40px auto 0 auto;
+    font-size: 0.8rem;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* --- 3. WIDE BANNER HERO SLIDER CONTROLS --- */
+.hero-carousel {
+    padding: 100px 0; /* Clear vertical width padding spaces */
+    display: flex;
+    justify-content: center;
+    background-color: #ffc2e7;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px; /* Full structural screen layout span */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-track {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-areas: "slide";
+    overflow: hidden;
+}
+
+.carousel-slide {
+    grid-area: slide;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    z-index: 1;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+.carousel-img {
+    width: 100%;
+    height: 560px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Perfect Dead Centered Arrows */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    color: #ffffff;
+    font-size: 2.2rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.arrow:hover {
+    background: rgba(255, 255, 255, 0.8);
+    color: #0093b1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.arrow-left { left: 30px; }
+.arrow-right { right: 30px; }
+
+/* --- 4. LACE SEPARATORS & HISTORY REGION --- */
+.history-section-teal {
+    background-color: #0093b1;
+    padding: 60px 40px;
+    position: relative;
+}
+
+.lace-divider-top {
+    height: 25px;
+    background: radial-gradient(circle, #000 4px, transparent 5px), 
+                radial-gradient(circle, #000 4px, transparent 5px);
+    background-size: 16px 16px;
+    background-position: 0 0, 8px 8px;
+    background-color: #0093b1;
+}
+
+.lace-divider-bottom {
+    height: 25px;
+    background: radial-gradient(circle, #000 4px, transparent 5px), 
+                radial-gradient(circle, #000 4px, transparent 5px);
+    background-size: 16px 16px;
+    background-position: 0 0, 8px 8px;
+    background-color: #ffffff;
+}
+
+.history-teal-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Left Stacked Column */
+.stacked-images-column {
+    background-color: #ffffff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    max-width: 160px;
+}
+
+.stack-frame img {
+    width: 100%;
+    display: block;
+}
+
+/* Ornate Text Frame Box & Graphic Stars Elements */
+.ornate-history-box {
+    position: relative;
+    padding: 40px;
+}
+
+.star {
+    position: absolute;
+    font-size: 4rem;
+    font-weight: bold;
+    user-select: none;
+}
+.pink-star { color: #e5287a; right: -10px; top: -30px; transform: rotate(15deg); text-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+.gold-star { color: #d4af37; left: -40px; bottom: -20px; transform: rotate(-20deg); text-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+
+.history-title-inline {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.ornate-frame-border {
+    border: 2px solid #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    line-height: 1.9;
+    font-size: 0.92rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.ornate-frame-border p { margin-bottom: 15px; }
+
+/* --- 5. BOTTOM FEATURED DESIGNERS COLLAGE --- */
+.designers-section {
+    padding: 80px 40px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.designers-main-heading {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 60px;
+    letter-spacing: 1px;
+}
+
+.designers-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.designer-card {
+    text-align: center;
+}
+
+/* Beautiful Oval/Circular Beaded Frames from Layout Template */
+.circular-oval-frame {
+    width: 100%;
+    aspect-ratio: 1 / 1.3;
+    border: 6px double #000000;
+    border-radius: 50% / 40%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.circular-oval-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.designer-card h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.designer-card p {
+    font-size: 0.78rem;
+    color: #555555;
+    line-height: 1.4;
+    padding: 0 10px;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 1024px) {
+    .designers-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+}
+/* --- BAHAGIAN TAMBAHAN BAWAH --- */
+.footer-extension {
+    background-color: #ffffff;
+    width: 100%;
+    padding-top: 20px;
+}
+
+/* Pembahagi Corak Papan Catur (Chequerboard Pattern) */
+.checker-divider {
+    height: 16px;
+    width: 100%;
+    background-image: linear-gradient(45deg, #000 25%, transparent 25%), 
+                      linear-gradient(-45deg, #000 25%, transparent 25%), 
+                      linear-gradient(45deg, transparent 75%, #000 75%), 
+                      linear-gradient(-45deg, transparent 75%, #000 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+    margin-bottom: 60px;
+}
+
+/* Bekas Utama */
+.extension-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 80px 20px;
+}
+
+/* Kotak Quote / Falsafah */
+.quote-card {
+    background-color: #ffc2e7; /* Warna Teal (sepadan dengan tema atas) */
+    color: black;
+    padding: 50px 40px;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 60px;
+}
+
+.quote-card h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.quote-card p {
+    font-size: 1.1rem;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Grid Dua Kolum */
+.explore-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.explore-card {
+    border: 1px solid #1a1a1a;
+    padding: 40px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.explore-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.explore-card h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.4rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+.explore-card p {
+    font-size: 0.95rem;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.btn-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-decoration: none;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #1a1a1a;
+    padding-bottom: 4px;
+    transition: opacity 0.2s ease;
+}
+
+.btn-link:hover {
+    opacity: 0.7;
+}
+
+/* Hak Cipta / Footer Bawah */
+.site-footer {
+    border-top: 1px solid #e5e5e5;
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #777777;
+}
+
+/* Responsif untuk Skrin Telefon */
+@media (max-width: 768px) {
+    .explore-grid {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 768px) {
+    .history-teal-container { grid-template-columns: 1fr; justify-items: center; }
+    .stacked-images-column { flex-direction: row; max-width: 100%; overflow-x: auto; }
+    .stacked-images-column .stack-frame { width: 100px; flex-shrink: 0; }
+    .designers-grid { grid-template-columns: 1fr; }
+    .star { display: none; } /* Clear clutter on narrow viewports */
+}

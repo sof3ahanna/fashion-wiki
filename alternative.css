@@ -1,0 +1,474 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    color: #111111;
+    overflow-x: hidden;
+}
+
+.vintage-nav {
+    background-color: #000000;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    z-index: 100;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.nav-icon.home-icon,
+.nav-icon.home-icon svg,
+.nav-icon.back-arrow, 
+.nav-icon.back-arrow svg {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+    stroke: #ffffff !important;
+}
+
+.nav-icon:hover svg {
+    opacity: 0.8;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* --- SEKSYEN 1: TOP SCRAPBOOK (DARK OXBLOOD RED) --- */
+.alt-top-section {
+    position: relative;
+    background-color: #580c12; 
+    padding: 90px 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.alt-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 45px;
+    letter-spacing: 4px;
+    color: #ffffff;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.polaroid-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.polaroid {
+    position: relative;
+    background: #ffffff;
+    padding: 12px 12px 35px 12px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+    width: 200px;
+}
+
+.polaroid img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.tilt-left { transform: rotate(-6deg); }
+.tilt-right { transform: rotate(5deg); }
+.tilt-straight { transform: rotate(1deg); }
+
+.tape-strip {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 24px;
+    background-color: rgba(220, 210, 195, 0.75);
+}
+
+.alt-intro-text {
+    max-width: 950px;
+    margin: 0 auto;
+    font-size: 12.5px;
+    line-height: 1.9;
+    text-align: center;
+    letter-spacing: 0.5px;
+    padding: 0 20px;
+}
+
+.underline {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Kesan Potongan Kertas Koyak */
+.torn-paper {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    background-size: cover;
+    z-index: 5;
+}
+
+.top-torn {
+    top: -22px;
+    background-image: url('torn-edge-top-crimson.png');
+}
+
+.bottom-torn {
+    bottom: -22px;
+    background-image: url('torn-edge-bottom-crimson.png');
+}
+
+/* --- SEKSYEN 2: MIDDLE SLIDER (DIKEMAS KINI: KECIL & DI TENGAH) --- */
+/* --- SEKSYEN 2: MIDDLE SLIDER (DIKEMAS KINI: BACKGROUND PUTIH LEBIH BESAR) --- */
+.alt-slider-section {
+    background-color: #000000;
+    /* Dibesarkan padding atas kepada 80px dan bawah kepada 60px */
+    padding: 80px 20px 60px 20px; 
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.slider-magazine-layout {
+    width: 100%;
+    max-width: 900px; 
+    margin: 0 auto;
+    display: block;
+    /* Ditambah margin bawah untuk memberi ruang putih ekstra sebelum seksyen seterusnya */
+    margin-bottom: 20px; 
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    /* DIUBAH: Menggunakan aspect-ratio 21/9 untuk kesan rectangular/cinematic yang ketara */
+    aspect-ratio: 21 / 9; 
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Shadow ditebalkan sedikit untuk padanan saiz besar */
+    border-radius: 0px; /* DITUKAR KE 0px: Membuang sudut melengkung supaya nampak petak tajam (rectangular) */
+}
+
+.slider-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Arrow Putih Segitiga */
+.slide-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 45px; /* Dikecilkan saiz butang mengikut saiz slider baharu */
+    cursor: pointer;
+    z-index: 10;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.slide-arrow:hover {
+    opacity: 1;
+}
+
+.prev-arrow { left: 20px; }
+.next-arrow { right: 20px; }
+
+/* --- SEKSYEN 3: HISTORY (OXBLOOD BACKGROUND + TATTOO) --- */
+.alt-history-section {
+    padding: 100px 20px;
+    background-color: #4a070c; 
+    color: #ffffff;
+    position: relative;
+}
+
+.history-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.history-left-frames {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.gothic-lace-frame {
+    background-color: #ffffff;
+    padding: 12px;
+    border: 6px double #ffffff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    transform: rotate(-3deg);
+    width: 210px;
+}
+
+.gothic-lace-frame:nth-child(2) {
+    transform: rotate(4deg);
+    margin-left: 40px;
+}
+
+.gothic-lace-frame img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.history-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+}
+
+.alt-history-text {
+    font-size: 13.5px;
+    line-height: 1.8;
+    color: #f5f5f5;
+    text-align: justify;
+}
+
+.alt-history-text p {
+    margin-bottom: 18px;
+}
+
+.tribal-tattoo {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-image: url('tribal-flourish.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.25;
+}
+
+.top-right-tattoo { top: 30px; right: 30px; }
+.bottom-left-tattoo { bottom: 30px; left: 30px; }
+
+.gothic-fringe-divider {
+    width: 100%;
+    height: 55px;
+    background-image: url('gothic-fringe.png'); 
+    background-repeat: repeat-x;
+    background-size: contain;
+    margin-top: 60px;
+}
+
+/* --- SEKSYEN 4: SUB-GENRES (PAKSAN SAIZ SERAGAM MUTLAK) --- */
+/* --- SEKSYEN 4: SUB-GENRES (BACKGROUND LUAS & TAJUK DI TENGAH) --- */
+.alt-subcultures-section {
+    background-color: #ffffff !important;
+    /* Dibesarkan padding atas (100px) dan bawah (100px) untuk luaskan background putih */
+    padding: 100px 20px !important; 
+    text-align: center !important;
+    position: relative !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+.subcultures-title {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 28px !important; /* Dibesarkan sedikit saiz tajuk */
+    letter-spacing: 2px !important;
+    margin-bottom: 60px !important; /* Jarak antara tajuk dengan frame di bawahnya */
+    
+    /* INI AKAN MEMAKSA TAJUK DUDUK TEPAT DI TENGAH-TENGAH SKRIN */
+    text-align: center !important; 
+    width: 100% !important;
+    display: block !important;
+    color: #111111 !important;
+}
+.alt-subcultures-grid {
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr) !important; 
+    gap: 20px !important; 
+    max-width: 1200px !important; 
+    margin: 0 auto !important;
+    align-items: flex-start !important; /* Memaksa semua bingkai selari di atas */
+}
+
+.subculture-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important; 
+}
+
+/* Rangka Kotak Filem - Menggunakan !important untuk menyekat sebarang kod lama */
+.filmstrip-box {
+    width: 100% !important;
+    height: 240px !important; /* Kita tukar daripada aspect-ratio kepada KETINGGIAN TETAP (Fixed Height) */
+    background-color: #000000 !important;
+    padding: 10px 10px 30px 10px !important; 
+    border: 3px solid #111111 !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+
+.filmstrip-box img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Memotong gambar secara paksa supaya muat dalam 240px */
+    display: block !important;
+}
+
+.subculture-label {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    margin-top: 15px !important;
+    letter-spacing: 1px !important;
+    color: #222222 !important;
+    text-transform: uppercase !important;
+}
+
+.extension-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 80px 20px;
+}
+
+/* Kotak Quote / Falsafah */
+.quote-card {
+    background-color: rgb(44, 2, 31); /* Warna Teal (sepadan dengan tema atas) */
+    color: white;
+    padding: 50px 40px;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 60px;
+}
+
+.quote-card h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.quote-card p {
+    font-size: 1.1rem;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Grid Dua Kolum */
+.explore-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.explore-card {
+    border: 1px solid #1a1a1a;
+    padding: 40px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.explore-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.explore-card h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.4rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+.explore-card p {
+    font-size: 0.95rem;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.btn-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-decoration: none;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #1a1a1a;
+    padding-bottom: 4px;
+    transition: opacity 0.2s ease;
+}
+
+.btn-link:hover {
+    opacity: 0.7;
+}
+/* Hak Cipta / Footer Bawah */
+.site-footer {
+    border-top: 1px solid #e5e5e5;
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #777777;
+}

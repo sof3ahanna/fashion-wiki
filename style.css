@@ -1,0 +1,244 @@
+/* --- RESET & GLOBAL STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #5c0f22;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* --- UPDATED HERO SECTION & TEXT STYLINGS --- */
+.top-hero {
+    background-color:  #581012;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-container {
+    background-color: #581012; /* Dark Crimson Card Background */
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 40px;
+    padding: 40px 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    font-weight: 700;
+    color: #000be3; /* Electric Blue Text */
+    text-transform: capitalize;
+    z-index: 10;
+    line-height: 1;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+/* Push text positions exactly like the template layout */
+.title-top {
+    top: -30px; 
+}
+
+.title-bottom {
+    bottom: -30px;
+}
+
+.globe-graphic-container {
+    position: relative;
+    width: 450px;
+    height: 450px; 
+    margin: 40px auto;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.globe-graphic-container canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1;
+}
+
+.btn-explore {
+    position: relative;
+    z-index: 20; /* Keep explore button on top layer */
+    background-color: #ffffff;
+    color: #000be3;
+    text-decoration: none;
+    padding: 12px 35px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-explore:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .globe-graphic-container {
+        width: 280px;
+        height: 280px;
+    }
+    .title-top { top: -15px; }
+    .title-bottom { bottom: -15px; }
+}
+/* --- 2. MID SECTION --- */
+.mid-intro {
+    background-color: #ffffff;
+    color: #000be3;
+    padding: 80px 40px;
+    position: relative;
+}
+
+.mid-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    gap: 30px;
+}
+
+.collage-left img, 
+.collage-right img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Off-angle rotations to match the artistic skewing in the graphic */
+.collage-left {
+    transform: rotate(-5deg);
+}
+
+.collage-right {
+    transform: rotate(5deg);
+}
+
+.mid-content {
+    text-align: center;
+    padding: 0 20px;
+}
+
+.mid-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.mid-text {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.mid-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+
+/* --- 4. FOOTER --- */
+.footer {
+    background-color: #5c0f22; 
+    color: #ffffff;
+    padding: 80px 60px;
+    margin-top: 0; /* Locks it tightly against the gallery section */
+    display: block;
+}
+
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.footer-logo span {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.footer-links-group {
+    display: flex;
+    gap: 100px;
+}
+
+.footer-column h3 {
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.footer-column p, 
+.footer-column a {
+    display: block;
+    font-size: 0.8rem;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.8;
+    opacity: 0.8;
+    margin-bottom: 4px;
+}
+
+.footer-column a:hover {
+    opacity: 1;
+}
+
+/* --- RESPONSIVE DESIGN (MOBILE & TABLET) --- */
+@media (max-width: 992px) {
+    .mid-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .collage-left, .collage-right {
+        max-width: 300px;
+        margin: 0 auto;
+        transform: none;
+    }
+    
+    .gallery-container {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 50px;
+    }
+    
+    .footer-links-group {
+        gap: 50px;
+    }
+}

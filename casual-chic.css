@@ -1,0 +1,508 @@
+/* --- RESET & BASIC CONFIG --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    color: #1a1a1a;
+    overflow-x: hidden;
+}
+
+/* --- NAVBAR STABLE --- */
+.vintage-nav {
+    background-color: #000000;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    z-index: 100;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.nav-icon.back-arrow, 
+.nav-icon.back-arrow svg {
+    color: #ffffff !important;
+    stroke: #ffffff !important;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* --- SEKSYEN 1: TOP SCRAPBOOK (SOLID BLACK) --- */
+.chic-top-section {
+    position: relative;
+    background-color: rgb(44, 2, 31); /* Hitam Padat */
+    padding: 90px 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.chic-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 45px;
+    letter-spacing: 4px;
+    color: #ffffff; /* Merah hati gelap klasik */
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.polaroid-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.polaroid {
+    position: relative;
+    background: #ffffff;
+    padding: 12px 12px 35px 12px;
+    box-shadow: 0 12px 25px rgba(255,255,255,0.08);
+    width: 200px;
+}
+
+.polaroid img {
+    width: 100%;
+    height: 185px;
+    object-fit: cover;
+}
+
+.tilt-left { transform: rotate(-5deg); }
+.tilt-right { transform: rotate(5deg); }
+.tilt-straight { transform: rotate(1deg); }
+
+.tape-strip {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 22px;
+    background-color: rgba(214, 202, 182, 0.7);
+}
+
+.chic-intro-text {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 13px;
+    line-height: 1.8;
+    text-align: center;
+    letter-spacing: 0.5px;
+    padding: 0 20px;
+}
+
+.chic-intro-text p {
+    margin-bottom: 20px;
+}
+
+/* Kesan Kertas Koyak */
+.torn-paper {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    background-size: cover;
+    z-index: 5;
+}
+
+.top-torn {
+    top: -22px;
+    background-image: url('torn-edge-top-black.png');
+}
+
+.bottom-torn {
+    bottom: -22px;
+    background-image: url('torn-edge-bottom-black.png');
+}
+
+/* --- SEKSYEN 2: MIDDLE SLIDER --- */
+.chic-slider-section {
+    background-color: #ffffff;
+    padding: 40px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 1350px;
+    aspect-ratio: 16 / 8;
+    overflow: hidden;
+}
+
+.slider-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Navigasi Arrow Tengah */
+.slide-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 55px;
+    opacity: 0.8;
+    cursor: pointer;
+    z-index: 10;
+    transition: opacity 0.2s;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+.slide-arrow:hover { opacity: 1; }
+.prev-arrow { left: 40px; }
+.next-arrow { right: 40px; }
+
+/* Pembahagi Renda Merah Jambu (Pink Lace Ribbon) */
+.pink-lace-divider {
+    width: 100%;
+    height: 75px;
+    background-image: url('pink-lace.png'); /* Sediakan pattern renda merah jambu anda */
+    background-repeat: repeat-x;
+    background-position: center;
+    background-size: contain;
+    margin-top: -5px;
+    z-index: 15;
+}
+
+/* --- SEKSYEN 3: HISTORY (HITAM) --- */
+.chic-history-section {
+    padding: 100px 20px;
+    background-color: #000000;
+    color: #ffffff;
+    position: relative;
+}
+
+.history-container {
+    max-width: 1150px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    gap: 50px;
+    align-items: center;
+}
+
+/* Gambar Bingkai Gantung Berskrol */
+.history-left-hanging {
+    display: flex;
+    position: relative;
+    height: 400px;
+}
+
+.hanging-frame {
+    position: absolute;
+    background-color: #ffffff;
+    padding: 10px 10px 30px 10px;
+    box-shadow: 0 10px 25px rgba(255,255,255,0.05);
+    border: 5px solid #ffffff;
+    border-image: url('ornate-lace-edge.png') 10 round; /* Rangka tepi renda */
+}
+
+.hanging-frame img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.frame-1 {
+    width: 170px;
+    top: 20px;
+    left: 40px;
+    transform: rotate(-4deg);
+}
+
+.frame-2 {
+    width: 160px;
+    bottom: 20px;
+    right: 20px;
+    transform: rotate(6deg);
+}
+
+/* Tali Penggantung Gantung */
+.hanging-frame::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    width: 2px;
+    height: 50px;
+    background: linear-gradient(to bottom, transparent, #ffffff);
+}
+
+.history-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    color: #ffffff;
+    margin-bottom: 25px;
+    letter-spacing: 3px;
+}
+
+.chic-ornate-box {
+    position: relative;
+    padding: 30px 0;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.chic-ornate-box p {
+    margin-bottom: 20px;
+}
+
+/* Flourish Hiasan Pink */
+.flourish {
+    width: 100%;
+    height: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.top-flourish {
+    background-image: url('flourish-top.png');
+    margin-bottom: 15px;
+}
+
+.bottom-flourish {
+    background-image: url('flourish-bottom.png');
+    margin-top: 15px;
+}
+
+/* Jalur Sempadan Filem (Filmstrip Border) */
+.filmstrip-divider {
+    width: 100%;
+    height: 45px;
+    background-image: url('filmstrip-pattern.png'); /* Corak gerigi kotak filem vintaj */
+    background-repeat: repeat-x;
+    background-size: contain;
+    margin-top: 60px;
+}
+
+/* --- SEKSYEN 4: GRID BAWAH (PUTIH) --- */
+.chic-grid-section {
+    background-color: #ffffff;
+    padding: 100px 20px;
+}
+
+.grid-content-header {
+    max-width: 1350px;
+    margin: 0 auto 60px auto;
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.text-left-side {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.grid-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: #000000;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.text-left-side p {
+    margin-bottom: 15px;
+}
+
+.fan-ornament-box img {
+    width: 100%;
+    max-width: 220px;
+    opacity: 0.85;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 3 Big Square Boxes Grid (Bigger Image Boxes) */
+.chic-icons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 35px;
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+.chic-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Bingkai Hitam Berombak (Scalloped Black Frame) */
+.scalloped-black-frame {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Kekalkan bentuk kotak segi empat tepat sempurna */
+    border: 14px solid transparent;
+    border-image: url('scalloped-black-frame.png') 30 round; /* Reka bentuk bingkai hitam */
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+.scalloped-black-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* Paksa warna putih pada ikon home */
+.nav-icon.home-icon,
+.nav-icon.home-icon svg {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+    text-decoration: none !important;
+}
+
+.nav-icon.home-icon:hover svg {
+    opacity: 0.8; /* Kesan hover malap lembut */
+
+}
+.extension-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 80px 20px;
+}
+
+/* Kotak Quote / Falsafah */
+.quote-card {
+    background-color: rgb(44, 2, 31); /* Warna Teal (sepadan dengan tema atas) */
+    color: white;
+    padding: 50px 40px;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 60px;
+}
+
+.quote-card h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.quote-card p {
+    font-size: 1.1rem;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Grid Dua Kolum */
+.explore-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.explore-card {
+    border: 1px solid #1a1a1a;
+    padding: 40px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.explore-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.explore-card h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.4rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+.explore-card p {
+    font-size: 0.95rem;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.btn-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-decoration: none;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #1a1a1a;
+    padding-bottom: 4px;
+    transition: opacity 0.2s ease;
+}
+
+.btn-link:hover {
+    opacity: 0.7;
+}
+/* Hak Cipta / Footer Bawah */
+.site-footer {
+    border-top: 1px solid #e5e5e5;
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #777777;
+}

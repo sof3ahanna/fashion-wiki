@@ -1,0 +1,486 @@
+/* --- RESET & BASIC CONFIG --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f6ebd4; /* Krim lembut sepadan dengan imej */
+    font-family: 'Poppins', sans-serif;
+    color: #4a3319;
+    overflow-x: hidden;
+}
+
+/* --- NAVBAR STABLE --- */
+.vintage-nav {
+    background-color: #000000;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    z-index: 100;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #cccccc;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-icon:hover {
+    color: #ffffff;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+/* Paksa warna putih pada ikon belakang */
+.nav-icon.back-arrow, 
+.nav-icon.back-arrow svg {
+    color: #ffffff !important;
+    stroke: #ffffff !important;
+    text-decoration: none !important;
+}
+
+.nav-icon.back-arrow:hover svg {
+    opacity: 0.8; /* Efek hover lembut apabila disentuh tetikus */
+}
+
+/* --- SEKSYEN 1: TOP SCRAPBOOK (EARTHY BROWN) --- */
+.boho-top-section {
+    position: relative;
+    background-color: #937152; /* Latar belakang coklat tanah */
+    padding: 80px 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.boho-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 45px;
+    letter-spacing: 5px;
+    color: #ffffff;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.polaroid-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.polaroid {
+    position: relative;
+    background: #ffffff;
+    padding: 15px 15px 40px 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    width: 210px;
+    transition: transform 0.3s ease;
+}
+
+.polaroid img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.tilt-left { transform: rotate(-6deg); }
+.tilt-right { transform: rotate(6deg); }
+.tilt-straight { transform: rotate(1deg); }
+
+.tape-strip {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75px;
+    height: 25px;
+    background-color: rgba(222, 209, 183, 0.75);
+}
+
+.boho-intro-text {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 13px;
+    line-height: 1.8;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0 20px;
+}
+
+.boho-intro-text p {
+    margin-bottom: 20px;
+}
+
+/* Kesan Kertas Koyak */
+.torn-paper {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-size: cover;
+    z-index: 5;
+}
+
+.top-torn {
+    top: -20px;
+    background-image: url('torn-edge-top-brown.png'); /* Sediakan PNG Koyakan coklat anda */
+}
+
+.bottom-torn {
+    bottom: -20px;
+    background-image: url('torn-edge-bottom-brown.png');
+}
+
+/* --- SEKSYEN 2: MIDDLE SLIDER --- */
+.boho-slider-section {
+    background-color: #f6ebd4;
+    padding: 60px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 1350px;
+    aspect-ratio: 16 / 8;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.slider-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Arrow Navigasi Slider */
+.slide-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 50px;
+    opacity: 0.8;
+    cursor: pointer;
+    z-index: 10;
+    transition: opacity 0.2s, transform 0.2s;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.slide-arrow:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-arrow { left: 40px; }
+.next-arrow { right: 40px; }
+
+/* Pembahagi Renda Permata (Gemstone Ribbon) */
+.gemstone-divider {
+    width: 100%;
+    height: 80px;
+    background-image: url('gemstone-belt.png'); /* Sediakan imej manik hiasan di tengah */
+    background-repeat: repeat-x;
+    background-position: center;
+    background-size: contain;
+    margin-top: -10px;
+    z-index: 15;
+}
+
+/* --- SEKSYEN 3: HISTORY --- */
+.boho-history-section {
+    padding: 80px 20px;
+    background-color: #937152; /* Sejarah menggunakan latar belakang coklat tanah */
+    color: #ffffff;
+    position: relative;
+}
+
+.history-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.history-left {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.lace-stamp-frame {
+    background-color: #f6ebd4;
+    padding: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    /* Bingkai berskala tepi renda klasik */
+    border: 8px solid #f6ebd4;
+    border-style: double;
+}
+
+.lace-stamp-frame img {
+    width: 100%;
+    display: block;
+}
+
+.history-right {
+    position: relative;
+}
+
+.history-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+/* Kotak kertas koyak bergaya kusam (vintage scroll feel) */
+.torn-paper-box {
+    background-color: #e2cca6;
+    color: #3e2812;
+    padding: 40px;
+    font-size: 13.5px;
+    line-height: 1.8;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    border-radius: 2px;
+}
+
+.torn-paper-box p {
+    margin-bottom: 18px;
+}
+
+/* Hiasan Bintang Mistik (Celestial Stars) */
+.star-ornament {
+    position: absolute;
+    font-size: 24px;
+    color: #a47d4b;
+}
+
+.top-right { top: 15px; right: 20px; }
+.bottom-left { bottom: 15px; left: 20px; }
+
+/* Jalur Warna Watercolor Striped Bawah */
+.watercolor-stripes {
+    width: 100%;
+    height: 40px;
+    background-image: url('watercolor-stripes.jpg'); /* Corak jalur merah-putih */
+    background-size: cover;
+    margin-top: 60px;
+}
+
+/* --- SEKSYEN 4: ICONS --- */
+.boho-icons-section {
+    
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.icons-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #4a3319;
+    letter-spacing: 2px;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+}
+
+.icons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.icon-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Bingkai Emas Mewah (Ornate Gold Frame) */
+.gold-ornate-frame {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Kekalkan bentuk kotak segi empat tepat yang besar */
+    border: 15px solid transparent;
+    border-image: url('gold-frame.png') 30 round; /* Reka bentuk bingkai vintaj anda */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    background-color: #ffffff;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.gold-ornate-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.icon-name {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    color: #4a3319;
+}
+
+/* Hiasan Matahari (Sunburst Deco) */
+.sunburst-decor {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url('sunburst.png'); /* PNG Matahari Merah Jambu/Krim */
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+}
+
+.top-left { top: 40px; left: 40px; }
+.bottom-right { bottom: 40px; right: 40px; }
+.extension-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 80px 20px;
+}
+
+/* Kotak Quote / Falsafah */
+.quote-card {
+    background-color: #4a3319; /* Warna Teal (sepadan dengan tema atas) */
+    color: white;
+    padding: 50px 40px;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 60px;
+}
+
+.quote-card h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.quote-card p {
+    font-size: 1.1rem;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Grid Dua Kolum */
+.explore-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.explore-card {
+    border: 1px solid #1a1a1a;
+    padding: 40px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.explore-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.explore-card h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.4rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+.explore-card p {
+    font-size: 0.95rem;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.btn-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-decoration: none;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #1a1a1a;
+    padding-bottom: 4px;
+    transition: opacity 0.2s ease;
+}
+
+.btn-link:hover {
+    opacity: 0.7;
+}
+/* Hak Cipta / Footer Bawah */
+.site-footer {
+    border-top: 1px solid #e5e5e5;
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #777777;
+}

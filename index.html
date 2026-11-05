@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The World Of Fashion</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for bold serif headlines and clean sans-serif text -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+<!-- 1. TOP HERO SECTION -->
+<section class="top-hero">
+    <div class="hero-container">
+        <h1 class="hero-title title-top">The World Of Fashion</h1>
+        
+        <!-- The moving globe container -->
+        <div class="globe-graphic-container" id="globe-3d-container">
+            <a href="explore.html" class="btn-explore">Explore</a>
+        </div>
+        
+        <h1 class="hero-title title-bottom">In Full View</h1>
+    </div>
+</section>
+
+<!-- Load Three.js library from CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<!-- Inline script guarantees execution order and eliminates file path errors -->
+<script>
+    window.addEventListener('load', () => {
+        const container = document.getElementById('globe-3d-container');
+        if (!container) return;
+
+        // Force a stable rendering dimension
+        const width = 450;
+        const height = 450;
+
+        // 1. Setup Scene, Camera, and Renderer
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+        camera.position.z = 12;
+
+        const renderer = new THREE.WebGLRenderer({ 
+            alpha: true, 
+            antialias: true 
+        });
+        renderer.setSize(width, height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        
+        container.appendChild(renderer.domElement);
+
+        // 2. Create the Globe Mesh
+        const geometry = new THREE.SphereGeometry(4.2, 28, 28);
+        const material = new THREE.MeshBasicMaterial({
+            color: 0x000be3, // Electric Blue
+            wireframe: true,
+            transparent: true,
+            opacity: 0.85
+        });
+        
+        const globe = new THREE.Mesh(geometry, material);
+        scene.add(globe);
+
+        // Solid inner core to visually block overlapping rear wireframe lines
+        const coreGeometry = new THREE.SphereGeometry(4.1, 20, 20);
+        const coreMaterial = new THREE.MeshBasicMaterial({
+            color: 0x581012, // Matches the dark crimson card background
+            transparent: false
+        });
+        const core = new THREE.Mesh(coreGeometry, coreMaterial);
+        globe.add(core);
+
+        // Tilt the axis slightly for visual flair
+        globe.rotation.x = 0.4;
+        globe.rotation.z = -0.2;
+
+        // 3. Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            globe.rotation.y += 0.005; // Spin speed
+            renderer.render(scene, camera);
+        }
+        
+        animate();
+    });
+</script>
+
+    <!-- 2. MID SECTION ("More Than Fashion") -->
+    <section class="mid-intro">
+        <div class="mid-container">
+            <!-- Left Collage Asset -->
+            <div class="collage-left">
+                <img src="img1.jpg" alt="Fashion Collage Left">
+            </div>
+
+            <!-- Central Content -->
+            <div class="mid-content">
+                <h2 class="mid-title">More Than<br>Fashion</h2>
+                <div class="mid-text">
+                    <p>Fashion is a universal language, a form of self-expression that speaks volumes about personality, culture, and creativity.</p>
+                    <p>From timeless classics to bold avant-garde statements, the world of fashion has an amazing landscape of different fashion styles that define eras, reflect identities, and influence trends.</p>
+                </div>
+            </div>
+
+            <!-- Right Collage Asset -->
+            <div class="collage-right">
+                <img src="img2.jpg" alt="Chanel Magazines Right">
+            </div>
+        </div>
+    </section>
+
+  
+    <!-- 4. FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Logo Section -->
+            <div class="footer-logo">
+                <span>Sf.</span>
+            </div>
+            
+            <!-- Links Section -->
+            <div class="footer-links-group">
+                <div class="footer-column">
+                    <h3>SAY HELLO</h3>
+                    <p>123 Anywhere St.</p>
+                    <p>Any City, State</p>
+                    <p>Any Country</p>
+                    <p>(123) 456-7890</p>
+                </div>
+                <div class="footer-column">
+                    <h3>FOLLOW US</h3>
+                    <a href="facebook.com">Facebook</a>
+                    <a href="instagram.com">Instagram</a>
+                    <a href="tiktok.com">TikTok</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

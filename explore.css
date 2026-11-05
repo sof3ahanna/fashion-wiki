@@ -1,0 +1,179 @@
+/* --- RESET & BASE STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color:black;
+    color: #333333;
+}
+
+/* --- NAVIGATION BAR --- */
+.navbar {
+    background-color: #000000;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.home-icon:hover {
+    opacity: 0.8;
+}
+
+.nav-title {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* --- EXPLORE SECTION & GRID --- */
+.explore-section {
+    padding: 60px 40px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 30px;
+    width: 100%;
+    max-width: 1400px;
+}
+
+/* --- CARD STRUCTURE --- */
+.explore-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Card images with specific asymmetrical rounded corners */
+.image-wrapper {
+    width: 100%;
+    aspect-ratio: 3.2 / 4;
+    border-radius: 65px; /* Creates the beautifully stylized rounded cards */
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.explore-card:hover .image-wrapper img {
+    transform: scale(1.05);
+}
+
+/* --- PILL BUTTONS --- */
+.style-pill {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    width: 85%; /* Extends pill nicely under the card */
+    max-width: 200px;
+}
+
+.style-pill:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+/* Custom Palette for Each Card Pill */
+.pill-couture {
+    background-color: #ae8bb2; /* Muted lavender */
+}
+
+.pill-avantgarde {
+    background-color: #0093be; /* Vivid teal */
+}
+
+.pill-streetwear {
+    background-color: #559670; /* Cool sage green */
+}
+
+.pill-vintage {
+    background-color: #e9e793; /* Soft retro yellow */
+    color: #5d5d21; /* Darker text for visibility on light yellow */
+}
+
+.pill-bohemian {
+    background-color: #927557; /* Warm earthy brown */
+}
+
+.pill-casual {
+    background-color: #000000; /* Sleek black */
+}
+
+.pill-y2k {
+    background-color: #e9b2dc; /* Pastel pink */
+}
+
+.pill-alternative {
+    background-color: #4a030b; /* Dark cherry/burgundy */
+}
+
+/* --- FOOTER ACCENT --- */
+.footer-accent {
+    background-color: black; /* Burgundy base bottom line */
+    height: 50px;
+    width: 100%;
+}
+
+/* --- RESPONSIVE DESIGN (TABLETS & MOBILE) --- */
+@media (max-width: 1100px) {
+    .explore-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2x4 layout on medium devices */
+        gap: 30px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .explore-grid {
+        grid-template-columns: 1fr; /* Single column on phones */
+        gap: 40px 10px;
+    }
+    
+    .explore-section {
+        padding: 40px 20px;
+    }
+
+    .image-wrapper {
+        border-radius: 45px; /* Slightly softer curves for mobile widths */
+    }
+}
